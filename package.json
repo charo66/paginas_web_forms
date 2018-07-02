@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "start": "parallelshell \"npm run server\" \"npm run pug\" ",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pug":"pug -w -P ./06_Pug/src -o ./06_pug/dist",
+    "server": "http-server"  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/charo66/paginas_web_forms.git"
@@ -18,5 +20,9 @@
   "homepage": "https://github.com/charo66/paginas_web_forms#readme",
   "dependencies": {
     "bootstrap": "^4.1.1"
+  },
+  "devDependencies": {
+    "pug": "^2.0.3",
+    "pug-cli": "^1.0.0-alpha6"
   }
 }
