@@ -9,6 +9,8 @@ html(lang=idioma)
         h1 Pug Avanzado.
 
         //- Lógica mediante JS
+
+        //- Condicional IF
         -let nombre = "Pepe"
         //-let nombre = "María"
         -if (nombre === 'Pepe') {
@@ -16,6 +18,16 @@ html(lang=idioma)
         - } else {
             p Hola #{nombre}, ¿donde está Pepe?
         - }
+
+        //- Iteracion FOR
+        - let aSecciones = ['Inicio', 'Porfolio', 'Clientes', 'About']
+        nav
+            ul
+                -for (let i = 0; i < aSecciones.length; i++) {
+                    -const seccion = aSecciones[i];
+                    li: a(href="#"+seccion.toLowerCase())= seccion
+                - }
+
 
         //- Logica nativa (build-in) Pug
 
@@ -43,12 +55,21 @@ html(lang=idioma)
         
         //- Iteraciones EACH
 
-        - let aSecciones = ['Inicio', 'Porfolio', 'Clientes', 'About']
+        aSecciones = ['Inicio', 'Porfolio', 'Clientes', 'About']
         nav
             ul
                 each seccion in aSecciones
                     li: a(href="#"+seccion.toLowerCase())= seccion
+
+        -let aSections = ['Home', 'Porfolio', 'Clients', 'About']
+        nav
+            ul
+                - let i = 0
+                while i < aSections.length
+                    li: a(href="#"+aSections[i].toLowerCase())= aSections[i]
+                    -i++                      
             
+        //-let aOpciones = [ {nombre: 'C#', codigo:'37'}, {nombre: 'Java', codigo:'84'}, {nombre: 'JavaScript', codigo:'13'}] 
         -let aOpciones = cursos
         -let optName = 'cursos'
         form(action="")
@@ -58,4 +79,12 @@ html(lang=idioma)
                     option(value=opcion.codigo)= opcion.nombre
             button(type="submit") Enviar
                 
-            
+        //- Iteraciones WHILE
+
+        -aSections = ['Home', 'Porfolio', 'Clients', 'About']
+        nav
+            ul
+                - i = 0
+                while i < aSections.length
+                    li: a(href="#"+aSections[i].toLowerCase())= aSections[i]
+                    -i++  
